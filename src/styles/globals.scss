@@ -1,0 +1,101 @@
+@import 'vars';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.primary-button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  font-size: $--md;
+  font-weight: bold;
+  background-color: $--hospital-green;
+  color: $--white;
+  cursor: pointer;
+}
+
+.secondary-button {
+  height: 50px;
+  border: 2px solid $--hospital-green;
+  border-radius: 8px;
+  font-size: $--md;
+  font-weight: bold;
+  background-color: $--white;
+  color: $--hospital-green;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .sign-up-button {
+    bottom: 100px;
+  }
+}
+
+.login-button {
+  margin-top: 16px;
+}
+
+.account-button {
+  margin-top: 240px;
+}
+
+@media (min-width: 640px) {
+  .account-button {
+    margin-top: 20px;
+  }
+}
+
+.title {
+  margin-top: 2rem;
+  font-size: $--title;
+  text-align: center;
+}
+
+.subtitle {
+  margin-bottom: 32px;
+  font-size: $--md;
+  font-weight: 300;
+  text-align: center;
+  color: $--very-light-pink;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 4px;
+  font-size: $--sm;
+  font-weight: bold;
+}
+
+.label--error {
+  color: $--negative;
+}
+
+.input {
+  height: 32px;
+  margin-bottom: 24px;
+  padding: 6px;
+  border: none;
+  border-radius: 8px;
+  font-size: $--md;
+  background-color: $--text-input-field;
+}
+
+.input--error {
+  border: 1px solid $--negative;
+}
