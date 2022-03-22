@@ -35,6 +35,14 @@
   flex-basis: 10%;
 }
 
+.ProductItem-price p {
+  background-color: $--hospital-green-transparent;
+  border-radius: 7px;
+  width: fit-content;
+  padding: 0.3rem 0.8rem;
+  box-shadow: 0 0 8px 1px $--hospital-green-transparent;
+}
+
 .ProductItem-id {
   flex-basis: 10%;
 }

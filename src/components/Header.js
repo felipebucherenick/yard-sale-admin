@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import logo from '@icons/logo_yard_sale.svg';
 import menu from '@icons/icon_menu.svg';
@@ -20,7 +21,9 @@ const Header = () => {
         <nav className={styles['Header-nav']}>
           <p>Products</p>
           <p>Customers</p>
-          <p>Metrics</p>
+          <Link href="/dashboard/metrics" passHref>
+            <p>Metrics</p>
+          </Link>
         </nav>
         <div className={styles['Header-admin-menu']}>
           <img src={avatarImage} alt="Admin Menu" width={40} height={40} />
