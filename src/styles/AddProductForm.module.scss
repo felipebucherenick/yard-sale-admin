@@ -1,0 +1,97 @@
+@import 'vars';
+
+.AddProductFormContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $--white;
+  width: 40%;
+  height: 90%;
+  border-radius: 8px;
+}
+
+.AddProductForm-header {
+  width: 100%;
+  height: 6rem;
+  background-color: $--text-input-field;
+  border-radius: 8px 8px 0 0;
+}
+
+.Close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+}
+
+.AddProductForm-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 3rem;
+  width: 80%;
+}
+
+.AddProductForm-form label {
+  color: $--dark;
+  font-size: $--sm;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.AddProductForm-form input {
+  border-radius: 4px;
+  border: 2px solid $--very-light-pink;
+  height: 3rem;
+  margin-bottom: 3rem;
+}
+
+.AddProductForm-title-price {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.AddProductForm-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddProductForm-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddProductForm-category {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.AddProductForm-description {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.AddProductForm-description textarea {
+  border-radius: 3px;
+  border: 2px solid $--very-light-pink;
+  height: 8rem;
+}
+
+.AddProductForm-photo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.AddProductForm-submit {
+  align-self: flex-end;
+  background-color: $--hospital-green;
+  border: none;
+  border-radius: 7px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

@@ -9,9 +9,34 @@
 .ProductsList {
   margin-top: 6rem;
   width: 90%;
-  border: 2px solid $--very-light-pink;
   border-top: none;
   border-radius: 7px;
+}
+
+.ProductsList-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.ProductsList-title h2 {
+  font-size: $--title;
+}
+
+.ProductsList-add-product {
+  display: flex;
+  align-items: center;
+  background-color: $--hospital-green;
+  border: none;
+  border-radius: 7px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.ProductsList-add-product span {
+  color: $--white;
 }
 
 .ProductsList-header {
@@ -42,4 +67,5 @@
 
 .ProductsList-container {
   width: 100%;
+  border: 2px solid $--very-light-pink;
 }
