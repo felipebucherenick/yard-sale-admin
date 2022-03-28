@@ -3,7 +3,12 @@
     "baseUrl": "src",
     "paths": {
       "@styles/*": ["styles/*"],
-      "@icons/*": ["assets/icons/*"]
+      "@icons/*": ["assets/icons/*"],
+      "@components/*": ["components/*"],
+      "@containers/*": ["containers/*"],
+      "@context/*": ["context/*"],
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"]
     }
   }
 }

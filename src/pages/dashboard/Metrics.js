@@ -1,8 +1,8 @@
-import Chart from '../../components/Chart';
-import endPoints from '../../services/api';
-import useFetch from '../../hooks/useFetch';
+import Chart from '@components/Chart';
+import endPoints from 'services/api';
+import useFetch from '@hooks/useFetch';
 
-const metrics = () => {
+const Metrics = () => {
   const products = useFetch(endPoints.products.getProducts(30, 0));
   const categories = products?.map((product) => product.category);
   const categoriesNames = categories?.map((categoryName) => categoryName.name);
@@ -22,4 +22,4 @@ const metrics = () => {
   return <Chart chartData={data} />;
 };
 
-export default metrics;
+export default Metrics;

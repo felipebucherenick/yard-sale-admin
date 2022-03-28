@@ -1,16 +1,23 @@
-import Image from 'next/image';
-import endPoints from '../services/api';
-import useFetch from '../hooks/useFetch';
-import ProductItem from '../components/ProductItem';
-import AddProductModal from './AddProductModal';
-import AddProductForm from 'components/AddProductForm';
-import checkIcon from '@icons/check-icon.png';
-import styles from '../styles/ProductsList.module.scss';
 import { useState } from 'react';
+import Image from 'next/image';
+
+import endPoints from 'services/api';
+import useFetch from '@hooks/useFetch';
+import ProductItem from '@components/ProductItem';
+import AddProductModal from '@containers/AddProductModal';
+import AddProductForm from '@components/AddProductForm';
+import useAlert from '@hooks/useAlert';
+import Alert from '@components/Alert';
+
+import checkIcon from '@icons/check-icon.png';
+
+import styles from '@styles/ProductsList.module.scss';
 
 export default function ProductsList() {
-  const products = useFetch(endPoints.products.getProducts(30, 30));
   const [openModal, setOpenModal] = useState(false);
+  const { alert, setAlert, toggleAlert } = useAlert();
+  const products = useFetch(endPoints.products.getProducts(250, 10), alert);
+
   const onClickButton = () => {
     setOpenModal((prevState) => !prevState);
   };
@@ -19,6 +26,7 @@ export default function ProductsList() {
     <>
       <div className={styles['Main-container']}>
         <div className={styles.ProductsList}>
+          {alert.active && <Alert alert={alert} handleClose={toggleAlert} />}
           <div className={styles['ProductsList-title']}>
             <h2>List of products</h2>
             <button className={styles['ProductsList-add-product']} onClick={onClickButton}>
@@ -41,7 +49,7 @@ export default function ProductsList() {
         </div>
         {openModal && (
           <AddProductModal>
-            <AddProductForm setOpenModal={setOpenModal} />
+            <AddProductForm setOpenModal={setOpenModal} setAlert={setAlert} />
           </AddProductModal>
         )}
       </div>

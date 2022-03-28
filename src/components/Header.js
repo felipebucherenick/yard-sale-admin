@@ -4,7 +4,7 @@ import Link from 'next/link';
 import logo from '@icons/logo_yard_sale.svg';
 import menu from '@icons/icon_menu.svg';
 
-import styles from '../styles/Header.module.scss';
+import styles from '@styles/Header.module.scss';
 
 const Header = () => {
   const avatarImage = 'https://ui-avatars.com/api/?name=admin&background=acd9b2&color=232830&rounded=true';
@@ -21,7 +21,7 @@ const Header = () => {
         <nav className={styles['Header-nav']}>
           <p>Products</p>
           <p>Customers</p>
-          <Link href="/dashboard/metrics" passHref>
+          <Link href="/dashboard/Metrics" passHref>
             <p>Metrics</p>
           </Link>
         </nav>

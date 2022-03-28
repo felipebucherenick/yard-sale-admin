@@ -35,7 +35,7 @@
 
 .AddProductForm-form label {
   color: $--dark;
-  font-size: $--sm;
+  font-size: $--md;
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
@@ -45,6 +45,24 @@
   border: 2px solid $--very-light-pink;
   height: 3rem;
   margin-bottom: 3rem;
+  outline: none;
+  color: $--dark;
+  font-size: $--sm;
+  font-weight: bold;
+  padding-left: 0.5rem;
+}
+
+.AddProductForm-form select {
+  border-radius: 4px;
+  border: 2px solid $--very-light-pink;
+  height: 3rem;
+  margin-bottom: 3rem;
+  outline: none;
+  color: $--dark;
+  font-size: $--sm;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  cursor: pointer;
 }
 
 .AddProductForm-title-price {
@@ -76,9 +94,15 @@
 }
 
 .AddProductForm-description textarea {
-  border-radius: 3px;
+  border-radius: 4px;
   border: 2px solid $--very-light-pink;
   height: 8rem;
+  outline: none;
+  color: $--dark;
+  font-size: $--sm;
+  font-weight: bold;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .AddProductForm-photo {

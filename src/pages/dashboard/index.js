@@ -1,5 +1,5 @@
-import Header from '../../components/Header';
-import ProductsList from '../../containers/ProductsList';
+import Header from '@components/Header';
+import ProductsList from '@containers/ProductsList';
 
 const dashboard = () => {
   return (

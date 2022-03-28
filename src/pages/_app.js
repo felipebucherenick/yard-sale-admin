@@ -1,5 +1,5 @@
-import appContext from 'context/appContext';
-import useAuth from 'hooks/useAuth';
+import appContext from '@context/appContext';
+import useAuth from '@hooks/useAuth';
 
 import '@styles/globals.scss';
 
