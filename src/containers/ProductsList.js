@@ -16,7 +16,7 @@ import styles from '@styles/ProductsList.module.scss';
 export default function ProductsList() {
   const [openModal, setOpenModal] = useState(false);
   const { alert, setAlert, toggleAlert } = useAlert();
-  const products = useFetch(endPoints.products.getProducts(250, 10), alert);
+  const products = useFetch(endPoints.products.getProducts(250, 40), alert);
 
   const onClickButton = () => {
     setOpenModal((prevState) => !prevState);
@@ -43,7 +43,7 @@ export default function ProductsList() {
           </div>
           <div className={styles['ProductsList-container']}>
             {products.map((product) => (
-              <ProductItem product={product} key={product.id} />
+              <ProductItem product={product} key={product.id} setAlert={setAlert} />
             ))}
           </div>
         </div>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { addProduct } from 'services/api/products';
 
 import cancel from '@icons/cancel.png';
+import addPhoto from '@icons/add-image.png';
 
 import styles from '@styles/AddProductForm.module.scss';
 
@@ -22,10 +23,9 @@ const AddProductForm = ({ setOpenModal, setAlert }) => {
       price: parseInt(formData.get('price')),
       description: formData.get('description'),
       categoryId: parseInt(formData.get('category')),
-      images: [
-        'https://images.pexels.com/photos/11341064/pexels-photo-11341064.jpeg?cs=srgb&dl=pexels-alexey-demidov-11341064.jpg&fm=jpg',
-      ],
+      images: [`/${formData.get('images').name}`],
     };
+    console.log(data);
     addProduct(data)
       .then(() => {
         setAlert({
@@ -85,7 +85,14 @@ const AddProductForm = ({ setOpenModal, setAlert }) => {
           </div>
 
           <div className={styles['AddProductForm-photo']}>
-            <p>Cover photo</p>
+            <label htmlFor="add-photo">Add photo</label>
+            <div className={styles['AddProductForm-frame']}>
+              <Image src={addPhoto} alt="Add photo icon" className={styles['AddProductForm-image']} />
+              <div className={styles['AddProductForm-input']}>
+                <input id="images" name="images" type="file"></input>
+                <span>Upload a file</span>
+              </div>
+            </div>
           </div>
 
           <button type="submit" className={styles['AddProductForm-submit']}>

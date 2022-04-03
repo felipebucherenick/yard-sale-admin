@@ -1,0 +1,50 @@
+@import 'vars';
+
+.DeleteProductAlert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  height: 14rem;
+  background-color: $--white;
+  border-radius: 7px;
+  padding: 3rem;
+}
+
+.DeleteProductAlert p {
+  font-size: $--md;
+}
+
+.Buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.Agreed {
+  display: flex;
+  align-items: center;
+  width: 8rem;
+  background-color: $--negative;
+  color: $--white;
+  font-weight: bold;
+  border: none;
+  border-radius: 7px;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
+
+.Cancel {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 8rem;
+  background-color: $--hospital-green;
+  color: $--white;
+  font-weight: bold;
+  border: none;
+  border-radius: 7px;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}

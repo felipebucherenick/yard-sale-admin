@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import DeleteProductModal from '../containers/DeleteProductModal';
+import DeleteProductAlert from '@components/DeleteProductAlert';
 
 import styles from '@styles/ProductItem.module.scss';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, setAlert }) => {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const handleDelete = () => {
+    setOpenDeleteModal((prevState) => !prevState);
+  };
   return (
     <div className={styles.ProductItem}>
       <div className={styles['ProductItem-info']}>
@@ -27,8 +33,13 @@ const ProductItem = ({ product }) => {
       </div>
       <div className={styles['ProductItem-edit']}>
         <button>edit</button>
-        <button>delete</button>
+        <button onClick={handleDelete}>delete</button>
       </div>
+      {openDeleteModal && (
+        <DeleteProductModal>
+          <DeleteProductAlert setOpenDeleteModal={setOpenDeleteModal} productId={product.id} setAlert={setAlert} />
+        </DeleteProductModal>
+      )}
     </div>
   );
 };
