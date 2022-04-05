@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import DeleteProductModal from '../containers/DeleteProductModal';
+import Modal from '../containers/Modal';
 import DeleteProductAlert from '@components/DeleteProductAlert';
+import EditProductForm from './EditProductForm';
 
 import styles from '@styles/ProductItem.module.scss';
 
 const ProductItem = ({ product, setAlert }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
   const handleDelete = () => {
     setOpenDeleteModal((prevState) => !prevState);
+  };
+  const handleEdit = () => {
+    setOpenEditModal((prevState) => !prevState);
   };
   return (
     <div className={styles.ProductItem}>
@@ -32,13 +37,18 @@ const ProductItem = ({ product, setAlert }) => {
         <p>{product.id}</p>
       </div>
       <div className={styles['ProductItem-edit']}>
-        <button>edit</button>
+        <button onClick={handleEdit}>edit</button>
         <button onClick={handleDelete}>delete</button>
       </div>
       {openDeleteModal && (
-        <DeleteProductModal>
+        <Modal>
           <DeleteProductAlert setOpenDeleteModal={setOpenDeleteModal} productId={product.id} setAlert={setAlert} />
-        </DeleteProductModal>
+        </Modal>
+      )}
+      {openEditModal && (
+        <Modal>
+          <EditProductForm product={product} setOpenEditModal={setOpenEditModal} setAlert={setAlert} />
+        </Modal>
       )}
     </div>
   );

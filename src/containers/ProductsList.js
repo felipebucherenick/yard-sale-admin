@@ -4,7 +4,7 @@ import Image from 'next/image';
 import endPoints from 'services/api';
 import useFetch from '@hooks/useFetch';
 import ProductItem from '@components/ProductItem';
-import AddProductModal from '@containers/AddProductModal';
+import Modal from '@containers/Modal';
 import AddProductForm from '@components/AddProductForm';
 import useAlert from '@hooks/useAlert';
 import Alert from '@components/Alert';
@@ -16,7 +16,7 @@ import styles from '@styles/ProductsList.module.scss';
 export default function ProductsList() {
   const [openModal, setOpenModal] = useState(false);
   const { alert, setAlert, toggleAlert } = useAlert();
-  const products = useFetch(endPoints.products.getProducts(250, 40), alert);
+  const products = useFetch(endPoints.products.getProducts(50, 50), alert);
 
   const onClickButton = () => {
     setOpenModal((prevState) => !prevState);
@@ -48,9 +48,9 @@ export default function ProductsList() {
           </div>
         </div>
         {openModal && (
-          <AddProductModal>
+          <Modal>
             <AddProductForm setOpenModal={setOpenModal} setAlert={setAlert} />
-          </AddProductModal>
+          </Modal>
         )}
       </div>
     </>
