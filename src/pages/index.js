@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -14,14 +14,21 @@ export default function Home() {
   const passwordRef = useRef(null);
   const auth = useAuth();
   const router = useRouter();
+  const [loginError, setLoginError] = useState(false);
 
   const handlerSubmit = (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    auth.signIn(email, password).then(() => {
-      router.push('/dashboard');
-    });
+    auth
+      .signIn(email, password)
+      .then(() => {
+        router.push('/dashboard');
+      })
+      .catch((error) => {
+        setLoginError(true);
+        console.log(error);
+      });
   };
   return (
     <div className={styles.container}>
@@ -40,15 +47,28 @@ export default function Home() {
         <div className={styles.Login}>
           <div className={styles['Login__form-container']}>
             <form className="form" onSubmit={handlerSubmit}>
+              {loginError && <p className={styles.IncorrectLogin}>Incorrect email or password</p>}
               <label htmlFor="email" className="label">
                 Email address
               </label>
-              <input name="email" type="email" className="input" placeholder="camilayokoo@gmail.com" ref={emailRef} />
+              <input
+                name="email"
+                type="email"
+                className={`input ${loginError && 'input-error'}`}
+                placeholder="camilayokoo@gmail.com"
+                ref={emailRef}
+              />
 
               <label htmlFor="password" className="label">
                 Password
               </label>
-              <input name="password" type="password" className="input" placeholder="********" ref={passwordRef} />
+              <input
+                name="password"
+                type="password"
+                className={`input ${loginError && 'input-error'}`}
+                placeholder="********"
+                ref={passwordRef}
+              />
 
               <button className="primary-button login-button" type="submit">
                 Log in

@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import AdminMenu from './AdminMenu';
 
 import logo from '@icons/logo_yard_sale.svg';
 import menu from '@icons/icon_menu.svg';
@@ -8,6 +10,11 @@ import styles from '@styles/Header.module.scss';
 
 const Header = () => {
   const avatarImage = 'https://ui-avatars.com/api/?name=admin&background=acd9b2&color=232830&rounded=true';
+  const [openAdminMenu, setOpenAdminMenu] = useState(false);
+
+  const handleOpenMenu = () => {
+    setOpenAdminMenu((prevState) => !prevState);
+  };
   return (
     <>
       <div className={styles.Header}>
@@ -26,8 +33,9 @@ const Header = () => {
           </Link>
         </nav>
         <div className={styles['Header-admin-menu']}>
-          <img src={avatarImage} alt="Admin Menu" width={40} height={40} />
+          <img src={avatarImage} alt="Admin Menu" width={40} height={40} onClick={handleOpenMenu} />
         </div>
+        {openAdminMenu && <AdminMenu />}
       </div>
     </>
   );

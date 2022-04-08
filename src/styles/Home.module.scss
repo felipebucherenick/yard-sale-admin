@@ -25,6 +25,13 @@
   width: 300px;
 }
 
+.IncorrectLogin {
+  font-size: $--sm;
+  font-weight: bold;
+  color: $--negative;
+  margin-bottom: 2rem;
+}
+
 .forgot-password {
   margin-top: 28px;
   text-align: center;

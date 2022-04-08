@@ -23,6 +23,14 @@ function useAuth() {
       setUser(user);
     }
   };
-  return { user, signIn };
+
+  const logout = () => {
+    Cookies.remove('token');
+    setUser(null);
+    delete axios.defaults.headers.Authorization;
+    window.location.href = '/';
+  };
+
+  return { user, signIn, logout };
 }
 export default useAuth;

@@ -8,7 +8,7 @@ import styles from '@styles/AddProductForm.module.scss';
 
 const EditProductForm = ({ setAlert, product, setOpenEditModal }) => {
   const formRef = useRef(null);
-
+  console.log(product.category);
   const handleCancel = () => {
     setOpenEditModal((prevState) => !prevState);
   };
@@ -23,7 +23,7 @@ const EditProductForm = ({ setAlert, product, setOpenEditModal }) => {
       categoryId: parseInt(formData.get('category')),
       images: [`/${formData.get('images').name}`],
     };
-    console.log(data);
+
     updateProduct(product.id, data)
       .then(() => {
         setAlert({
@@ -68,11 +68,11 @@ const EditProductForm = ({ setAlert, product, setOpenEditModal }) => {
 
           <div className={styles['AddProductForm-category']}>
             <label htmlFor="category">Category</label>
-            <select id="category" name="category" autoComplete="category-name" defaultValue={product.category}>
+            <select id="category" name="category" autoComplete="category-name" defaultValue={product.category.id}>
               <option value="1">Clothes</option>
               <option value="2">Electronics</option>
               <option value="3">Furniture</option>
-              <option value="4">Toys</option>
+              <option value="4">Shoes</option>
               <option value="5">Others</option>
             </select>
           </div>
