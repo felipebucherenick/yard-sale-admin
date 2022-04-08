@@ -33,7 +33,7 @@ const Header = () => {
           </Link>
         </nav>
         <div className={styles['Header-admin-menu']}>
-          <img src={avatarImage} alt="Admin Menu" width={40} height={40} onClick={handleOpenMenu} />
+          <Image src={avatarImage} alt="Admin Menu" width={40} height={40} onClick={handleOpenMenu} />
         </div>
         {openAdminMenu && <AdminMenu />}
       </div>
